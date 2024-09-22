@@ -2,13 +2,10 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { scrapeAndCheckProduct } from '@/lib/actions'
-import { useRouter } from "next/navigation";
 import { useSession} from "next-auth/react"
 import LoginModal from './LoginModal'
 
 const ProductActions = (props) => {
-    const share = useRouter();
-    const base = "http://localhost:3000";
     const { session } = useSession()
     const [openModal, setOpenModal] = useState(false)
     
