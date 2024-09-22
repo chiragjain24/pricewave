@@ -153,7 +153,7 @@ export const formatNumber = (num = 0) => {
 };
 
 export const metadata = {
-  title: 'PriceWise | Product Details',
+  title: 'PriceWave | Product Details',
 }
 
 

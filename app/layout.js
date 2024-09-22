@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "PriceWise",
+  title: "PriceWave",
   description: "Track product prices effortlessly and save money on your online shopping",
   icons: {
     icon: '/assets/icons/logo.svg'

@@ -13,7 +13,7 @@ const ProductActions = (props) => {
     const handleShare = () => {
         try{
             navigator.share({
-                title: 'PriceWise',
+                title: 'PriceWave',
                 text: `Check out this product: ${props.title}`,
                 url: window.location.href
             })
