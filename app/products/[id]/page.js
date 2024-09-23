@@ -155,6 +155,7 @@ export const formatNumber = (num = 0) => {
 export const metadata = {
   title: 'PriceWave | Product Details',
 }
+export const dynamic = 'force-dynamic'
 
 
 
