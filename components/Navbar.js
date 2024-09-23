@@ -18,7 +18,7 @@ const Navbar = () => {
   
       setTimeout(() => {
         setProgress(100)
-      }, 400);
+      }, 300);
 
    
   }, [pathname])
