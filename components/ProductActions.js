@@ -32,7 +32,9 @@ const ProductActions = (props) => {
           console.log("Error refreshing");
         }
         finally{
-          setIsLoading(false);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 1000);
         }
     }
     const handleSave = () => {
