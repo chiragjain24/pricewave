@@ -5,7 +5,7 @@ const nextConfig = {
           {hostname: 'm.media-amazon.com', pathname: '/images/**'},
           {hostname: 'www.amazon.in', pathname: '/images/**'},
         ],
-    },  
+    },
 };
 
 export default nextConfig;

@@ -1,16 +1,17 @@
-import { getProductById } from "@/lib/actions"
+import { getAllProductsId, getProductById } from "@/lib/actions"
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductActions from "@/components/ProductActions";
 import TrackBtn from "@/components/TrackBtn";
 
 
-const ProductDetails = async ({ params: { id }, searchParams }) => {
+const ProductDetails = async ({ params: { id }}) => {
   const product = await getProductById(id);
-  if(!product) redirect('/');
-  // const product = objj;
+  if (!product) {
+    notFound()
+  }
 
   return (
     <>
@@ -145,7 +146,7 @@ const ProductDetails = async ({ params: { id }, searchParams }) => {
 
 export default ProductDetails
 
-export const formatNumber = (num = 0) => {
+const formatNumber = (num = 0) => {
   return num.toLocaleString(undefined, {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
@@ -155,7 +156,10 @@ export const formatNumber = (num = 0) => {
 export const metadata = {
   title: 'PriceWave | Product Details',
 }
-export const dynamic = 'force-dynamic'
 
+export async function generateStaticParams() {
+  const paths=await getAllProductsId();
+  return paths;
+}
 
 

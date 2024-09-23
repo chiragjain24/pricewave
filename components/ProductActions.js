@@ -63,7 +63,7 @@ const ProductActions = (props) => {
             </div>
  
 
-            <div className="text-sm text-black opacity-50 italic w-full flex items-center gap-3 lg:gap-5 lg:pl-16 k">
+            <div className="text-sm text-black opacity-50 w-full flex items-center gap-3 lg:gap-5 lg:pl-16 k">
                 <div className="flex flex-col">
                   <div>
                     Created at: {formatDate(props.createdAt)}
@@ -72,7 +72,7 @@ const ProductActions = (props) => {
                   Updated at: {formatDate(props.updatedAt)}
                   </div>
                 </div>
-                <button disabled={isLoading} onClick={handleRefresh} className='hover:cursor-pointer' >
+                <button aria-label="update" disabled={isLoading} onClick={handleRefresh} className='hover:cursor-pointer' >
                     <Image src='/assets/icons/refresh.png' width={30} height={1} alt=""></Image>
                     {isLoading && <p>Updating...</p>}
                 </button>
