@@ -10,30 +10,29 @@ const Navbar = () => {
   const pathname = usePathname()
 
   useEffect(() => {
+      if(pathname.includes('/products/')) window.scroll(0, 0)
       setProgress(20)
 
-      setTimeout(() => {
-        setProgress(40)
+      const timeout1 = setTimeout(() => {
+        setProgress(40);
       }, 100);
-  
-      setTimeout(() => {
-        setProgress(100)
+    
+      const timeout2 = setTimeout(() => {
+        setProgress(100);
       }, 300);
+    
+      return () => {
+        // Cleanup previous timeouts when path changes
+        clearTimeout(timeout1);
+        clearTimeout(timeout2);
+      };
 
    
   }, [pathname])
 
-
-  useEffect(() => {
-    setTimeout(() => {
-     setProgress(0)
-    }, 50);
-  }, [])
-
-
   return (
     <>
-       <nav className='w-full h-16 flex justify-around items-center static border-b  lg:sticky top-0 z-10  backdrop-blur rounded-xl'>
+       <nav className='w-full h-16 flex justify-around items-center static border-b  lg:sticky top-0 z-10 bg-background/50  backdrop-blur rounded-xl'>
        <LoadingBar
         color='#ef4444'
         progress={progress}

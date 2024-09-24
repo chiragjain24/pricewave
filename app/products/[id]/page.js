@@ -5,6 +5,7 @@ import { notFound, redirect } from "next/navigation";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductActions from "@/components/ProductActions";
 import TrackBtn from "@/components/TrackBtn";
+import RecentlyViewed from "@/components/RecentlyViewed";
 
 
 const ProductDetails = async ({ params: { id }}) => {
@@ -12,6 +13,14 @@ const ProductDetails = async ({ params: { id }}) => {
   if (!product) {
     notFound()
   }
+
+  const localProduct= {
+    _id: product._id.toString(), 
+    title: product.title,
+    image: product.image,
+    currency: product.currency,
+    currentPrice: product.currentPrice,
+  };
 
   return (
     <>
@@ -46,7 +55,7 @@ const ProductDetails = async ({ params: { id }}) => {
             Visit Product
           </Link>
           
-          <ProductActions title={product.title} productUrl={product.url} createdAt={product.createdAt} updatedAt={product.updatedAt}   />
+          <ProductActions localProduct={localProduct} title={product.title} productUrl={product.url} createdAt={product.createdAt} updatedAt={product.updatedAt}   />
           
 
           <div className="flex flex-col gap-5">
@@ -139,6 +148,7 @@ const ProductDetails = async ({ params: { id }}) => {
 
 
       </div>
+      <RecentlyViewed/>
     
     </>
   )

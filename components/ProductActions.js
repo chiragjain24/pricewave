@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { scrapeAndCheckProduct } from '@/lib/actions'
 import { useSession} from "next-auth/react"
@@ -10,6 +10,18 @@ const ProductActions = (props) => {
     const [openModal, setOpenModal] = useState(false)
     
     const [isLoading, setIsLoading] = useState(false);
+    useEffect(() => {
+      const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+      const productIndex = recentlyViewed.findIndex(item => item._id === props.localProduct._id);
+      
+      if (productIndex !== -1) {
+      recentlyViewed.splice(productIndex, 1);
+      }
+      
+      recentlyViewed.unshift(props.localProduct);
+      localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+    }, [props.localProduct]);
+    
     const handleShare = () => {
         try{
             navigator.share({

@@ -3,6 +3,7 @@ import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import { getAllProducts } from "@/lib/actions";
 import ProductCard from "@/components/ProductCard";
+import RecentlyViewed from "@/components/RecentlyViewed";
 
 export default async function Home() {
   const allProducts = await getAllProducts();
@@ -30,6 +31,9 @@ export default async function Home() {
         
       </div>
 
+
+      
+
       <div className="w-5/6 mx-auto mt-10 lg:mt-0">
           <h2 className="text-[#282828] text-4xl font-semibold">Trending:</h2>
 
@@ -40,6 +44,7 @@ export default async function Home() {
         </section>
       </div>
       
+      <RecentlyViewed/>
 
     
 
