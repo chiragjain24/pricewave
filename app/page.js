@@ -25,7 +25,7 @@ export default async function Home() {
           <p className="text-sm italic ">Only Amazon links are supported yet</p>
         </div>
 
-        <div className=" h-full lg:min-h-[500px] min-h-[400px] lg:w-5/12 w-10/12 items-center justify-center flex bg-gray-100 rounded-3xl ">
+        <div className="hidden lg:flex h-full lg:min-h-[500px] min-h-[400px] lg:w-5/12 w-10/12 items-center justify-center bg-gray-100 rounded-3xl ">
           <HeroCarousel/> 
         </div>
         
