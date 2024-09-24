@@ -19,7 +19,7 @@ const Navbar = () => {
     
       const timeout2 = setTimeout(() => {
         setProgress(100);
-      }, 300);
+      }, 400);
     
       return () => {
         // Cleanup previous timeouts when path changes
@@ -27,7 +27,6 @@ const Navbar = () => {
         clearTimeout(timeout2);
       };
 
-   
   }, [pathname])
 
   return (
