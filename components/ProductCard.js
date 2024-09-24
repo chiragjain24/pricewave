@@ -11,6 +11,7 @@ const ProductCard = ({product}) => {
       
         <div className="flex items-center justify-center h-[200px]">
           <Image 
+            unoptimized
             src={product.image}
             alt={product.title}
             width={200}

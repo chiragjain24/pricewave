@@ -6,11 +6,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const heroImages = [
-    { imgUrl: '/assets/images/hero-2.jpg', alt: 'earbuds'},
-    { imgUrl: '/assets/images/hero-3.jpg', alt: 'smartphone'},
-    { imgUrl: '/assets/images/hero-1.jpg', alt: 'smartwatch'},
-    { imgUrl: '/assets/images/hero-4.jpg', alt: 'book'},
-    { imgUrl: '/assets/images/hero-5.svg', alt: 'chair'},
+    { imgUrl: 'https://m.media-amazon.com/images/I/61-ZYvldY+L._SY355_.jpg', alt: 'earbuds'},
+    { imgUrl: 'https://m.media-amazon.com/images/I/71OXmy3NMCL._SX385_.jpg', alt: 'smartphone'},
+    { imgUrl: 'https://m.media-amazon.com/images/I/61GdCtUjrLL._SY355_.jpg', alt: 'smartwatch'},
+    { imgUrl: 'https://m.media-amazon.com/images/I/81q77Q39nEL._SY466_.jpg', alt: 'book'},
+    { imgUrl: 'https://m.media-amazon.com/images/I/61-pxrLNW+L._SX425_.jpg', alt: 'router'},
   ]
 
   
@@ -22,7 +22,7 @@ const HeroCarousel = () => {
     else if(idx==1) router.push('/products/66ee6fdbf2e8c6679c6d0b32');
     else if(idx==2) router.push('/products/66ee7041f2e8c6679c6d6084');
     else if(idx==3) router.push('/products/66ee7116f2e8c6679c6e15b4');
-    else if(idx==4) router.push('/');
+    else if(idx==4) router.push('/products/66f1a8ab3f9f8e27bdc34a01');
   }
   return (
     <>

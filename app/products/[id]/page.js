@@ -31,6 +31,7 @@ const ProductDetails = async ({ params: { id }}) => {
             href={product.url}
             target="_blank">
             <Image
+              unoptimized
               src={product.image}
               alt={product.title}
               width={300}
@@ -65,6 +66,7 @@ const ProductDetails = async ({ params: { id }}) => {
                       href={product.url}
                       target="_blank">
                       <Image
+                        unoptimized
                         src={product.image}
                         alt={product.title}
                         width={50}
