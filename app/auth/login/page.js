@@ -40,10 +40,10 @@ const Page = () => {
             <Image className='invert' src="https://authjs.dev/img/providers/github.svg" width={25} height={25} alt="" />
             <button className='mr-8 text-white'>Sign in with Github</button>
           </div>
-          <div className='flex gap-5 items-center border-2 border-gray-300 text-base px-5 py-3 rounded-xl hover:bg-blue-800 hover:cursor-pointer bg-blue-700' onClick={() => signIn('discord')}>
+          {/* <div className='flex gap-5 items-center border-2 border-gray-300 text-base px-5 py-3 rounded-xl hover:bg-blue-800 hover:cursor-pointer bg-blue-700' onClick={() => signIn('discord')}>
             <Image  src="https://authjs.dev/img/providers/discord.svg" width={25} height={25} alt="" />
             <button className='mr-8 text-white'>Sign in with Discord</button>
-          </div>
+          </div> */}
         </div>
 
       </div>
