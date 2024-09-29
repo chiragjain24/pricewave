@@ -5,9 +5,10 @@ import LoginModal from './LoginModal'
 import Link from "next/link"
 import Image from "next/image"
 const TrackBtn = ({productUrl}) => {
-  const { session } = useSession()
+  const { data:session } = useSession()
   const [openModal, setOpenModal] = useState(false)
   const handleClick = () => {
+    console.log(session?.user);
     if(!session) setOpenModal(true);
   }
   return (

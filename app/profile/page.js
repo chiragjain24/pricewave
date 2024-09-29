@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation';
-import { useSession, signIn } from "next-auth/react"
+import { useSession} from "next-auth/react"
 
 const ProfilePage = () => {
     const { status } = useSession()
@@ -22,8 +22,7 @@ const ProfilePage = () => {
   }
   return (
     <>
-    <p>Edit your profile here</p>
-
+      <p>Edit your profile here</p>
     </>
   )
 }

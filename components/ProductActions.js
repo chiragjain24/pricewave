@@ -6,7 +6,7 @@ import { useSession} from "next-auth/react"
 import LoginModal from './LoginModal'
 
 const ProductActions = (props) => {
-    const { session } = useSession()
+    const { data: session } = useSession()
     const [openModal, setOpenModal] = useState(false)
     
     const [isLoading, setIsLoading] = useState(false);
@@ -36,12 +36,11 @@ const ProductActions = (props) => {
     }
     // navigator.clipboard.writeText(text);
     const handleRefresh = async () => {
-      console.log(new Date(), "Refreshing start 1 ");
       setIsLoading(true);
       try{
-          console.log(new Date(), "Refreshing start 2 ");
+          console.log(new Date(), "Refreshing start");
           await scrapeAndCheckProduct(props.productUrl)
-          console.log(new Date(), "Refreshing start 3 ");
+          console.log(new Date(), "Refreshing end ");
         }
         catch (error) {
           console.log("Error refreshing");
@@ -53,6 +52,7 @@ const ProductActions = (props) => {
         }
     }
     const handleSave = () => {
+      console.log(session?.user);
       if(!session) setOpenModal(true);
     }
   return (

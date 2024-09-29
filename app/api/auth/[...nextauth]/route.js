@@ -76,6 +76,21 @@ export const authOptions = {
       }
       return false;
     },
+
+    async session({ session, token, user }) {
+      try{
+        console.log('session requested')
+        await connectToDB();
+        let currentUser = await User.findOne({ email: session.user.email })
+        session.user.name = currentUser.name;
+        return session
+      }
+      catch(error){
+        return session
+      }
+    h
+      
+    },
     
 
 
@@ -90,23 +105,4 @@ export { handler as GET, handler as POST };
 
 // account.access_token
 
-// async session({ session, token, user }) {
-//   try{
-//     await connectToDB();
 
-//     let currentUser = await User.findOne({ email: session.user.email })
-//     session.user.name = currentUser.name;
-//     session.user.username = currentUser.username;
-//     session.user.profilePic = currentUser.profilePic;
-//     if (currentUser.coverPic) session.user.coverPic = currentUser.coverPic;
-//     session.user.provider = currentUser.provider;
-    
-//     // console.log(session);
-//     return session
-//   }
-//   catch(error){
-//     return session
-//   }
-//h
-  
-// },
