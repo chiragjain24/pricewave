@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <>
-       <nav className='w-full h-16 flex justify-around items-center static border-b  lg:sticky top-0 z-10 bg-background/50  backdrop-blur rounded-xl'>
+       <nav className='w-full h-16 flex justify-between pl-5 lg:justify-around items-center static border-b  lg:sticky top-0 z-10 bg-background/50  backdrop-blur rounded-xl'>
        <LoadingBar
         color='#ef4444'
         progress={progress}
@@ -43,7 +43,7 @@ const Navbar = () => {
             <span className=' text-black'>Price<span className=' text-red-600'>Wave</span></span>
         </div>
         </Link>
-        <ul className='flex gap-5 h-full items-center'>
+        <ul className='w-fit lg:w-[250px] flex gap-4 lg:gap-5 h-full items-center'>
             <Link href='/'><li className='hover:cursor-pointer'><Image src="/assets/icons/search.svg" width={28}  height={28} alt=''></Image></li></Link>
             <Link href='/favourites'><li className='hover:cursor-pointer'><Image src="/assets/icons/black-heart.svg" width={28} height={28} alt=''></Image></li></Link>
             <NavbarDropdown/>
