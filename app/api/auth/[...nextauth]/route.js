@@ -79,7 +79,6 @@ export const authOptions = {
 
     async session({ session, token, user }) {
       try{
-        console.log('session requested')
         await connectToDB();
         let currentUser = await User.findOne({ email: session.user.email })
         session.user.name = currentUser.name;
