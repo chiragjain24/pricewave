@@ -1,9 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
-import { scrapeAndCheckProduct } from '@/lib/actions'
+import { addProductToUser, deleteProductFromUser, scrapeAndCheckProduct } from '@/lib/actions'
 import { useSession} from "next-auth/react"
 import LoginModal from './LoginModal'
+import { productsContext } from '@/context/context'
 
 const ProductActions = (props) => {
     const { data: session } = useSession()
@@ -26,7 +27,7 @@ const ProductActions = (props) => {
         try{
             navigator.share({
                 title: 'PriceWave',
-                text: `Track this product: ${props.title} `,
+                text: `Track this product: ${props.localProduct.title} `,
                 url: window.location.href
             })
         }
@@ -51,10 +52,31 @@ const ProductActions = (props) => {
           }, 1000);
         }
     }
+    const {savedProducts, setSavedProducts} = useContext(productsContext);
+
     const handleSave = () => {
-      console.log(session?.user);
-      if(!session) setOpenModal(true);
+      const productId= props.localProduct._id;
+      if(session){
+        if(savedProducts[productId]){
+          deleteProductFromUser(session.user.email, productId);
+          setSavedProducts((prev) => {
+              delete prev[productId];
+              return {...prev}
+          })
+        }
+        else{
+          addProductToUser(session.user.email, productId);
+          setSavedProducts((prev) => {
+              return {...prev, [productId]:true}
+          })
+  
+        }
+  
+        return;
+      }
+      setOpenModal(true);
     }
+
   return (
     <>
         <LoginModal openModal={openModal} setOpenModal={setOpenModal}/>
@@ -68,13 +90,24 @@ const ProductActions = (props) => {
               />
             </div>
 
-            <div onClick={handleSave} className="p-2 bg-[#FFF0F0] rounded-lg hover:cursor-pointer">
-              <Image
-                src="/assets/icons/red-heart.svg"
-                alt="heart"
-                width={25}
-                height={25}
-              />
+            <div onClick={handleSave} className={'p-2 bg-[#FFF0F0]  rounded-lg hover:cursor-pointer'}>
+              {savedProducts[props.localProduct._id] &&
+                <Image
+                  src="/assets/icons/red-heart-full.png"
+                  alt="heart"
+                  width={25}
+                  height={25}
+                />
+              } 
+              {!savedProducts[props.localProduct._id] &&
+                <Image
+                  src="/assets/icons/red-heart.svg"
+                  alt="heart"
+                  width={25}
+                  height={25}
+                />
+              }
+
             </div>
  
 

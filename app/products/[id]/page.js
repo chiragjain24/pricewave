@@ -56,7 +56,7 @@ const ProductDetails = async ({ params: { id }}) => {
             Visit Product
           </Link>
           
-          <ProductActions localProduct={localProduct} title={product.title} productUrl={product.url} createdAt={product.createdAt} updatedAt={product.updatedAt}   />
+          <ProductActions localProduct={localProduct} productUrl={product.url} createdAt={product.createdAt} updatedAt={product.updatedAt}   />
           
 
           <div className="flex flex-col gap-5">
@@ -142,7 +142,7 @@ const ProductDetails = async ({ params: { id }}) => {
           </div>
 
           <div className="flex gap-5">
-            <TrackBtn productUrl={product.url}/>
+            <TrackBtn productUrl={product.url} productId={localProduct._id}/>
           </div>
 
 
