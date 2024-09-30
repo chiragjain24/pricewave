@@ -9,7 +9,7 @@ export default async function Home() {
   const allProducts = await getAllProducts();
   return (
     <>
-      <div className="flex mx-auto gap-20 min-h-[calc(100vh-64px)] items-center w-full lg:w-5/6 flex-col lg:flex-row">
+      <div className="flex mx-auto gap-20 lg:min-h-[calc(100vh-64px)] items-center w-full lg:w-5/6 flex-col lg:flex-row">
       
         <div className="pt-10 lg:pt-0 h-full flex flex-col justify-center  gap-5 lg:w-7/12 w-10/12 text-center lg:text-left">
           <div className="items-center hidden lg:flex">
@@ -34,8 +34,10 @@ export default async function Home() {
 
       
 
-      <div className="w-5/6 mx-auto mt-10 lg:mt-0">
-          <h2 className="text-[#282828] text-4xl font-semibold">Trending:</h2>
+      <div id='trending' className="w-5/6 mx-auto mt-20 lg:mt-0 scroll-mt-24">
+          <div>
+          <h2 className="text-[#282828] text-4xl font-semibold ">Trending:</h2>
+          </div>
 
         <section className="grid lg:grid-cols-4 gap-5 mt-5 grid-cols-1 sm:grid-cols-2">
             {allProducts?.map((item) => (

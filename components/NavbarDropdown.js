@@ -26,7 +26,7 @@ const NavbarDropdown = () => {
 
   <div className='relative w-fit h-full flex items-center' onMouseEnter={()=>{setshowDropdown(true)}} onMouseLeave={()=>{setshowDropdown(false)}} >
     <button onClick={()=>{setshowDropdown(true)}} className="flex items-center text-base pe-1 font-medium rounded-full  md:me-0 " type="button">
-        {userData.profilePic &&  <Image unoptimized width={32} height={32} className=" w-8 h-8 me-2 rounded-full" src={userData?.profilePic} alt="user photo"/> }
+        {userData.profilePic &&  <Image unoptimized width={28} height={28} className=" w-7 h-7 me-2 rounded-full" src={userData?.profilePic} alt="user photo"/> }
         <span className='text-black hidden lg:block'> {userData?.name?.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase()).split(' ')[0].slice(0,15)} </span>
         <svg width="28px" height="28px" viewBox="-2.4 -2.4 28.80 28.80" xmlns="http://www.w3.org/2000/svg" fill="#000000" transform="rotate(0)matrix(1, 0, 0, 1, 0, 0)" stroke="#000000" strokeWidth="0.00024000000000000003"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#CCCCCC" strokeWidth="0.144"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="24" height="24"></rect> <g> <path d="M7 10l5 5 5-5"></path> </g> </g></svg>
     </button>
@@ -41,10 +41,13 @@ const NavbarDropdown = () => {
 
         <ul className="py-2 text-sm" >
           <li>
-            <Link href="/profile" className="block px-4 py-2 hover:bg-gray-300 ">Settings</Link>
+            <Link href="/favourites" className="block px-4 py-2 hover:bg-gray-300 ">My Products</Link>
           </li>
           <li>
-            <Link href="/favourites" className="block px-4 py-2 hover:bg-gray-300 ">My Products</Link>
+            <Link href="/#trending" className="block px-4 py-2 hover:bg-gray-300 ">Trending</Link>
+          </li>
+          <li>
+            <Link href="/profile" className="block px-4 py-2 hover:bg-gray-300 ">Settings</Link>
           </li>
           <li onClick={() => signOut()} className="block px-4 py-2 hover:bg-gray-300 hover:cursor-pointer">Log out</li>
         </ul>

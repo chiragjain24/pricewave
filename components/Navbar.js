@@ -11,7 +11,11 @@ const Navbar = () => {
   const pathname = usePathname()
 
   useEffect(() => {
-      if(pathname.includes('/products/')) window.scroll(0, 0)
+      const includedPaths = ['/products/', '/favourites']
+      if (includedPaths.some(path => pathname.includes(path))) {
+        window.scroll(0, 0);
+      }
+      
       setProgress(20)
 
       const timeout1 = setTimeout(() => {
@@ -32,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-       <nav className='w-full h-16 flex justify-between pl-5 lg:justify-around items-center static border-b  lg:sticky top-0 z-10 bg-background/50  backdrop-blur rounded-xl'>
+       <nav className='w-full h-16 flex justify-between pl-5 lg:justify-around items-center static shadow-sm border-b lg:sticky top-0 z-10 bg-background/50  backdrop-blur rounded-xl'>
        <LoadingBar
         color='#ef4444'
         progress={progress}
