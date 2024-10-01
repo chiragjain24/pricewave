@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 
-export async function POST() {
+export async function GET() {
   const headersList = headers()
   const authHeader = headersList.get('authorization')
   const apiSecret = authHeader?.split(' ')[1]
