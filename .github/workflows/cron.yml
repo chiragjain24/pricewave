@@ -1,0 +1,15 @@
+name: Scheduled Task
+on:
+  schedule:
+    - cron: '0 10 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:     # Allows manual trigger
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Next.js API Route
+        run: |
+          curl -X POST ${{ secrets.NEXTJS_API_URL }} \
+          -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+          -H "Content-Type: application/json"

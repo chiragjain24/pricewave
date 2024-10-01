@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import { getAllProductsUrls, scrapeAndCheckProduct } from '@/lib/actions'
 
-export async function GET() {
+export async function POST() {
   const headersList = headers()
   const authHeader = headersList.get('authorization')
   const apiSecret = authHeader?.split(' ')[1]
@@ -32,11 +32,32 @@ export async function GET() {
 }
 
 async function runScheduledTask() {
-    console.log('Running scheduled task started:', new Date().toISOString())
-    const urls= await getAllProductsUrls();
-    const fetchPromises = urls.map(url => scrapeAndCheckProduct(url));
-    const responses = await Promise.allSettled(fetchPromises);
+    try{
+        console.log('Running scheduled task started:', new Date().toISOString())
+        const urls= await getAllProductsUrls();
+        const fetchPromises = urls.map(url => fetchWithRetry(url));
+        await Promise.allSettled(fetchPromises);
+        console.log('Running scheduled task ended:', new Date().toISOString())
 
-  console.log('Running scheduled task ended:', new Date().toISOString())
+    }
+    catch{
+        console.error('Error in running scheduled task:', error)
+    }
+
   
 }
+
+async function fetchWithRetry(url, retries = 3) {
+    try {
+      await scrapeAndCheckProduct(url);
+
+    } catch (error) {
+      if (retries > 0) {
+        console.warn(`Retrying ${url}, attempts left: ${retries}`);
+        return await fetchWithRetry(url, retries - 1);  // Retry the request
+      } else {
+        console.error(`Failed after 3 retries: ${url}`);
+        return null;  // Return null or handle the failure appropriately after 3 retries
+      }
+    }
+  }
