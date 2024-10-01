@@ -65,3 +65,4 @@ async function fetchWithRetry(url, retries = 2) {
       }
     }
   }
+  export const maxDuration = 60;
