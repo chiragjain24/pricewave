@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
+import { getAllProductsUrls, scrapeAndCheckProduct } from '@/lib/actions'
 
 export async function GET() {
   const headersList = headers()
   const authHeader = headersList.get('authorization')
   const apiSecret = authHeader?.split(' ')[1]
 
-  // Verify the request is from GitHub Actions
   if (apiSecret !== process.env.CRON_SECRET) {
     return NextResponse.json(
       { success: false, message: 'Unauthorized' },
@@ -32,13 +32,11 @@ export async function GET() {
 }
 
 async function runScheduledTask() {
-  // Implement your task logic here
-  console.log('Running scheduled task:', new Date().toISOString())
+    console.log('Running scheduled task started:', new Date().toISOString())
+    const urls= await getAllProductsUrls();
+    const fetchPromises = urls.map(url => scrapeAndCheckProduct(url));
+    const responses = await Promise.allSettled(fetchPromises);
+
+  console.log('Running scheduled task ended:', new Date().toISOString())
   
-  // Example task: Clean up old data
-  // await db.cleanup()
-  
-  // Example task: Generate reports
-  // const report = await generateDailyReport()
-  // await saveReport(report)
 }
