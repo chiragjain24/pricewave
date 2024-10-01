@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import { getAllProductsUrls, scrapeAndCheckProduct } from '@/lib/actions'
+import { revalidatePath } from 'next/cache'
 
 export async function POST() {
   const headersList = headers()
@@ -36,8 +37,9 @@ async function runScheduledTask() {
         console.log('Running scheduled task started:', new Date().toISOString())
         const urls= await getAllProductsUrls();
         const fetchPromises = urls.map(url => fetchWithRetry(url));
-        await Promise.allSettled(fetchPromises);
+        const allData=await Promise.all(fetchPromises);
         console.log('Running scheduled task ended:', new Date().toISOString())
+        revalidatePath(`/`);
 
     }
     catch{
@@ -47,9 +49,11 @@ async function runScheduledTask() {
   
 }
 
-async function fetchWithRetry(url, retries = 3) {
+async function fetchWithRetry(url, retries = 2) {
     try {
-      await scrapeAndCheckProduct(url);
+      await scrapeAndCheckProduct(url, true);
+      console.log(`Fetched ${url}`);
+      return true;
 
     } catch (error) {
       if (retries > 0) {
