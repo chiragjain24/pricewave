@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import {scrapeAndCheckProduct} from '../lib/actions'
+import {scrapeAndCheckMyntra, scrapeAndCheckProduct} from '../lib/actions'
 import { redirect } from 'next/navigation'
 
 const isValidProductURL = (url) => {
@@ -16,7 +16,8 @@ const isValidProductURL = (url) => {
     const hostname = parsedURL.hostname;
   
     if( hostname.includes ('amazon.') 
-      || hostname.includes ('amzn.') 
+      || hostname.includes ('amzn.')
+      // || hostname.includes ('myntra.') 
 
     ) { 
       return url;

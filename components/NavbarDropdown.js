@@ -18,7 +18,7 @@ const NavbarDropdown = () => {
 
     {!session && 
             <Link href='/auth/login'>
-                <li className='hover:cursor-pointer pr-5 '><Image src="/assets/icons/user.svg" width={28} height={28} alt=''></Image></li>
+                <li className='hover:cursor-pointer pr-5 '><Image src="/assets/icons/user.svg" width={28} height={28} alt='Login'></Image></li>
             </Link>
 }
             {session && userData.name && 
