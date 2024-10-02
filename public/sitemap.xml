@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://pricewave.vercel.app/</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/favourites</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/auth/login</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66ee6fdbf2e8c6679c6d0b32</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66ee7017f2e8c6679c6d3ca5</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66ee7041f2e8c6679c6d6084</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66ee7116f2e8c6679c6e15b4</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66f053b3c54d4455357f3620</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66f05a95c54d4455358530be</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66f1a7323f9f8e27bdc1f4af</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66f1a8ab3f9f8e27bdc34a01</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66f1c6193f9f8e27bddd3ebe</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66f268293f9f8e27bd6e744d</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66f268f53f9f8e27bd6f3431</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://pricewave.vercel.app/products/66f2693f3f9f8e27bd6f7851</loc>
+  <lastmod>2024-10-02T07:51:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
