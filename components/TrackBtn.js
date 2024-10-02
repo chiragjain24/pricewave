@@ -6,6 +6,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { addProductToUser, deleteProductFromUser } from "@/lib/actions"
 import { productsContext } from "@/context/context"
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const TrackBtn = ({productUrl,productId}) => {
   const { data:session } = useSession()
@@ -26,6 +28,16 @@ const TrackBtn = ({productUrl,productId}) => {
         setSavedProducts((prev) => {
             return {...prev, [productId]:true}
         })
+        toast.success("Now Tracking", {
+          position: "top-center",
+          autoClose: 3000, 
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+        });
 
       }
 
@@ -55,6 +67,17 @@ const TrackBtn = ({productUrl,productId}) => {
                   <span className="">Buy Now</span>
               </div>
       </Link>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        />
 
     </>
   )

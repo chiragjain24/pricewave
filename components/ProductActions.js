@@ -5,6 +5,7 @@ import { addProductToUser, deleteProductFromUser, scrapeAndCheckProduct } from '
 import { useSession} from "next-auth/react"
 import LoginModal from './LoginModal'
 import { productsContext } from '@/context/context'
+import { toast } from 'react-toastify'
 
 const ProductActions = (props) => {
     const { data: session } = useSession()
@@ -42,9 +43,29 @@ const ProductActions = (props) => {
           console.log(new Date(), "Refreshing start");
           await scrapeAndCheckProduct(props.productUrl)
           console.log(new Date(), "Refreshing end ");
-        }
-        catch (error) {
+          toast.success("Updated", {
+            position: "top-right",
+            autoClose: 4000, 
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+          });
+          
+      } catch (error) {
           console.log("Error refreshing");
+          toast.warn("Oops. Try again", {
+            position: "top-right",
+            autoClose: 4000, 
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+          });
         }
         finally{
           setTimeout(() => {
@@ -69,9 +90,19 @@ const ProductActions = (props) => {
           setSavedProducts((prev) => {
               return {...prev, [productId]:true}
           })
+          toast.success("Now Tracking", {
+            position: "top-center",
+            autoClose: 3000, 
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+          });
   
         }
-  
+
         return;
       }
       setOpenModal(true);
@@ -127,6 +158,7 @@ const ProductActions = (props) => {
 
             </div>
         </div>
+
     </>
   )
 }
