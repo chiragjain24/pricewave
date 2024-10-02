@@ -6,6 +6,7 @@ import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductActions from "@/components/ProductActions";
 import TrackBtn from "@/components/TrackBtn";
 import RecentlyViewed from "@/components/RecentlyViewed";
+import { Description } from "@headlessui/react";
 
 
 const ProductDetails = async ({ params: { id }}) => {
@@ -166,7 +167,8 @@ const formatNumber = (num = 0) => {
 };
 
 export const metadata = {
-  title: 'PriceWave | Product Details',
+  title: 'Product Details | PriceWave',
+  description: 'View price history, compare across stores, and set alerts for the product. Save up to 40% with real-time price tracking and historical price analysis.',
 }
 
 export async function generateStaticParams() {
