@@ -11,7 +11,7 @@ const Navbar = () => {
   const pathname = usePathname()
 
   useEffect(() => {
-      const includedPaths = ['/products/', '/favourites']
+      const includedPaths = ['/products/', '/favourites' , '/profile']
       if (includedPaths.some(path => pathname.includes(path))) {
         window.scroll(0, 0);
       }
@@ -43,13 +43,13 @@ const Navbar = () => {
         onLoaderFinished={() => setProgress(0)}
       />
         <Link href={'/'}><div className='flex font-bold text-2xl items-center gap-2'>
-            <span><Image src="/assets/icons/logo.svg" width={27} height={27} alt=''/></span>
+            <span><Image src="/assets/icons/logo.svg" width={27} height={27} alt='home'/></span>
             <span className=' text-black'>Price<span className=' text-red-600'>Wave</span></span>
         </div>
         </Link>
         <ul className='w-fit lg:w-[250px] flex gap-4 lg:gap-5 h-full items-center'>
-            <Link href='/'><li className='hover:cursor-pointer'><Image src="/assets/icons/search.svg" width={28}  height={28} alt=''></Image></li></Link>
-            <Link href='/favourites'><li className='hover:cursor-pointer'><Image src="/assets/icons/black-heart.svg" width={28} height={28} alt=''></Image></li></Link>
+            <Link href='/'><li className='hover:cursor-pointer'><Image src="/assets/icons/search.svg" width={28}  height={28} alt='search'></Image></li></Link>
+            <Link href='/favourites'><li className='hover:cursor-pointer'><Image src="/assets/icons/black-heart.svg" width={28} height={28} alt='favourites'></Image></li></Link>
             <NavbarDropdown/>
 
         </ul>

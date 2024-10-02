@@ -29,6 +29,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://m.media-amazon.com" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
         <SessionWrapper>
         <ProductsProvider>
