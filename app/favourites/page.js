@@ -9,7 +9,7 @@ const FavouritesPage = () => {
     const { data:session , status } = useSession()
     const router = useRouter();
     const [allProducts, setAllProducts] = useState([])
-
+    const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (status === "unauthenticated") {
       router.replace('/auth/login');
@@ -20,6 +20,7 @@ const FavouritesPage = () => {
   const updateData = async () => {
     const data=await getSavedProductsDetails(session.user.email);
     setAllProducts(data);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -29,15 +30,16 @@ const FavouritesPage = () => {
 
   
   
-  if (status === 'loading') {
-    return <p>Loading...</p>;
-  }
+  // if (status === 'loading') {
+  //   return <p>Loading...</p>;
+  // }
 
   if (status === "unauthenticated") {
     return null;
   }
   return (
     <>
+      {loading && <p>Loading...</p>}
       {allProducts.length!==0 && (
             <div className="w-5/6 mx-auto mt-10 lg:mt-20 mb-10">
                 <h2 className="text-[#282828] text-4xl font-semibold">Your Products:</h2>
@@ -48,7 +50,7 @@ const FavouritesPage = () => {
                 </section>
             </div>
       )}
-      {allProducts.length===0 && 
+      {!loading && allProducts.length===0 && 
         <div className="w-5/6 mx-auto mt-10 lg:mt-20 mb-10">
           <h2 className="text-[#282828] text-4xl font-semibold">No products saved</h2>
         </div>
