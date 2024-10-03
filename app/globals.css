@@ -7,4 +7,9 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+@layer utilities{
+  .ani1{
+    @apply opacity-0 translate-y-10;
+  }
+}
 

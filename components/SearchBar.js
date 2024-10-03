@@ -1,7 +1,6 @@
 "use client"
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import {scrapeAndCheckMyntra, scrapeAndCheckProduct} from '../lib/actions'
-import { redirect } from 'next/navigation'
 
 const isValidProductURL = (url) => {
   try{
@@ -65,7 +64,7 @@ const SearchBar = () => {
 
     return (
         <>
-            <form className="flex gap-3 mt-4 flex-col lg:flex-row" onSubmit={handleSubmit}>
+            <form className="ani1 flex gap-3 mt-4 flex-col lg:flex-row" onSubmit={handleSubmit}>
                 <input
                     value={searchPrompt}
                     onChange={handleChange}
@@ -85,4 +84,4 @@ const SearchBar = () => {
     )
 }
 
-export default SearchBar
+export default memo(SearchBar)

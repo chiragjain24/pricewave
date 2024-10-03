@@ -6,6 +6,7 @@ import SessionWrapper from "@/components/SessionWrapper";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import ProductsProvider from "@/context/ProductsProvider";
+import HeroAnimationProvider from "@/context/HeroAnimationProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
         <SessionWrapper>
         <ProductsProvider>
+        <HeroAnimationProvider>
           <Navbar/>
 
           <main className="max-w-[1440px] min-h-[calc(100vh-64px)] mx-auto px-1">
@@ -44,6 +46,7 @@ export default function RootLayout({ children }) {
           </main>
 
           <Footer/>
+        </HeroAnimationProvider>
         </ProductsProvider>
         </SessionWrapper>
 

@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { memo } from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
@@ -40,7 +40,7 @@ const HeroCarousel = () => {
             emulateTouch={true}
             autoPlay
             infiniteLoop
-            interval={3500}
+            interval={2500}
             showArrows={false}
             showStatus={false}
             >
@@ -64,4 +64,4 @@ const HeroCarousel = () => {
   )
 }
 
-export default HeroCarousel
+export default memo(HeroCarousel)
