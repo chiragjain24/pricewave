@@ -4,8 +4,13 @@ import ProductCard from '@/components/ProductCard';
 import { useRouter } from 'next/navigation';
 import { useSession, signIn } from "next-auth/react"
 import { getSavedProductsDetails } from '@/lib/actions';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const FavouritesPage = () => {
+
     const { data:session , status } = useSession()
     const router = useRouter();
     const [allProducts, setAllProducts] = useState([])
@@ -28,11 +33,22 @@ const FavouritesPage = () => {
 
   }, [session]);
 
-  
-  
-  // if (status === 'loading') {
-  //   return <p>Loading...</p>;
-  // }
+  useGSAP(()=>{
+    gsap.fromTo('.dp', {y: 40, opacity: 0}, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: '.dp',
+        start: 'top bottom',
+      }
+    });
+    gsap.fromTo('.heading', {opacity: 0}, {
+      opacity: 1,
+      duration: 1,
+    });
+  },[allProducts])
 
   if (status === "unauthenticated") {
     return null;
@@ -42,7 +58,7 @@ const FavouritesPage = () => {
       {loading && <p>Loading...</p>}
       {allProducts.length!==0 && (
             <div className="w-5/6 mx-auto mt-10 lg:mt-20 mb-10">
-                <h2 className="text-[#282828] text-4xl font-semibold">Your Products:</h2>
+                <h2 className="heading text-[#282828] text-4xl font-semibold">Your Products:</h2>
                 <section className="grid lg:grid-cols-4 gap-5 mt-5 grid-cols-1 sm:grid-cols-2">
                     {allProducts?.map((item) => (
                     <ProductCard key={item._id} product={item} />

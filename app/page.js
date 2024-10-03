@@ -4,9 +4,23 @@ import Image from "next/image";
 import { getAllProducts } from "@/lib/actions";
 import ProductCard from "@/components/ProductCard";
 import RecentlyViewed from "@/components/RecentlyViewed";
+import HomeProducts from "@/components/HomeProducts";
 
 export default async function Home() {
   const allProducts = await getAllProducts();
+
+  const localProducts= allProducts.map((product) => {
+    const localProduct= {
+      _id: product._id.toString(), 
+      title: product.title,
+      image: product.image,
+      currency: product.currency,
+      currentPrice: product.currentPrice,
+    };
+    return localProduct;
+  });
+
+  
   return (
     <>
       <div className="flex mx-auto gap-20 lg:min-h-[calc(100vh-64px)] items-center w-full lg:w-5/6 flex-col lg:flex-row">
@@ -39,11 +53,7 @@ export default async function Home() {
           <h2 className="text-[#282828] text-4xl font-semibold ">Trending:</h2>
           </div>
 
-        <section className="grid lg:grid-cols-4 gap-5 mt-5 grid-cols-1 sm:grid-cols-2">
-            {allProducts?.map((item) => (
-              <ProductCard key={item._id} product={item} />
-            ))}
-        </section>
+          <HomeProducts products={localProducts}/>
       </div>
       
       <RecentlyViewed/>

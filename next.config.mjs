@@ -6,6 +6,7 @@ const nextConfig = {
           {hostname: 'www.amazon.in', pathname: '/images/**'},
         ],
     },
+    reactStrictMode: false,
 };
 
 export default nextConfig;
