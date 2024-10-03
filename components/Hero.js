@@ -37,7 +37,7 @@ import { HeroAnimationContext } from '@/context/context'
             <span className="text-base text-red-600">Smart Shopping Starts Here:&nbsp;</span>
             <span><Image src="/assets/icons/arrow-right.svg" width={16} height={16} alt=""></Image></span>
           </div>
-          <h1 className="ani1 text-6xl font-semibold flex flex-col gap-2">
+          <h1 className="-z-10 ani1 text-6xl font-semibold flex flex-col gap-2">
             <span >Unleash the Power of</span>
             <span className="text-red-600">PriceWave</span>
           </h1>
