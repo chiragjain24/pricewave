@@ -42,14 +42,14 @@ const Navbar = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-        <Link href={'/'}><div className='flex font-bold text-2xl items-center gap-2'>
-            <span><Image src="/assets/icons/logo.svg" width={27} height={27} alt='home'/></span>
+        <Link href={'/'} aria-label='HomePage'><div className='flex font-bold text-2xl items-center gap-2'>
+            <span><Image src="/assets/icons/logo.svg" width={27} height={27} alt='logo'/></span>
             <span className=' text-black'>Price<span className=' text-red-600'>Wave</span></span>
         </div>
         </Link>
         <ul className='w-fit lg:w-[250px] flex gap-4 lg:gap-5 h-full items-center'>
-            <Link href='/'><li className='hover:cursor-pointer'><Image src="/assets/icons/search.svg" width={28}  height={28} alt='search'></Image></li></Link>
-            <Link href='/favourites'><li className='hover:cursor-pointer'><Image src="/assets/icons/black-heart.svg" width={28} height={28} alt='favourites'></Image></li></Link>
+          <li><Link href='/' aria-label='Search'><Image src="/assets/icons/search.svg" width={28}  height={28} alt='search icon'></Image></Link></li>
+          <li><Link href='/favourites' aria-label='Favourites'><Image src="/assets/icons/black-heart.svg" width={28} height={28} alt='favourites icon'></Image></Link></li>
             <NavbarDropdown/>
 
         </ul>

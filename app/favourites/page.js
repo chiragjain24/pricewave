@@ -34,6 +34,8 @@ const FavouritesPage = () => {
   }, [session]);
 
   useGSAP(()=>{
+    if(allProducts.length===0) return;
+    
     gsap.fromTo('.dp', {y: 40, opacity: 0}, {
       y: 0,
       opacity: 1,
@@ -48,6 +50,10 @@ const FavouritesPage = () => {
       opacity: 1,
       duration: 1,
     });
+
+    return ()=>{
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    }
   },[allProducts])
 
   if (status === "unauthenticated") {

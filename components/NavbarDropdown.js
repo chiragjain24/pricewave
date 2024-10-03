@@ -14,14 +14,16 @@ const NavbarDropdown = () => {
 
   return (
     <>
-    <div className='h-full flex items-center'>
+    <li className='h-full flex items-center'>
 
-    {!session && 
-            <Link href='/auth/login'>
-                <li className='hover:cursor-pointer pr-5 '><Image src="/assets/icons/user.svg" width={28} height={28} alt='Login'></Image></li>
-            </Link>
-}
-            {session && userData.name && 
+      {!session && 
+            
+              <Link href='/auth/login' className='pr-5' aria-label='Login'>
+                  <Image src="/assets/icons/user.svg" width={28} height={28} alt='Login icon'></Image>
+              </Link>
+            
+      }
+         {session && userData.name && 
           <>
 
   <div className='relative w-fit h-full flex items-center' onMouseEnter={()=>{setshowDropdown(true)}} onMouseLeave={()=>{setshowDropdown(false)}} >
@@ -60,7 +62,7 @@ const NavbarDropdown = () => {
         }
 
 
-    </div>
+    </li>
     </>
   )
 }
