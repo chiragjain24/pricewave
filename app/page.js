@@ -16,11 +16,12 @@ export default async function Home() {
     };
     return localProduct;
   });
+  const carouselProducts=localProducts.slice(0, 6);
 
   
   return (
     <>
-      <Hero/>
+      <Hero carouselProducts={carouselProducts} />
       <Trending products={localProducts}/>
       <RecentlyViewed/>
 

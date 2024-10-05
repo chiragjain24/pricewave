@@ -7,7 +7,7 @@ import Image from 'next/image'
 import gsap from 'gsap'
 import { HeroAnimationContext } from '@/context/context'
 
-  const Hero = () => {
+  const Hero = ({carouselProducts}) => {
 
     const { hasAnimated, setHasAnimated } = useContext(HeroAnimationContext);
     useEffect(() => {
@@ -47,7 +47,7 @@ import { HeroAnimationContext } from '@/context/context'
         </div>
 
         <div className="hidden lg:flex h-full lg:min-h-[500px] min-h-[400px] lg:w-5/12 w-10/12 items-center justify-center bg-gray-100 rounded-3xl ">
-          <HeroCarousel />
+          <HeroCarousel carouselProducts={carouselProducts}/>
         </div>
 
       </div>
