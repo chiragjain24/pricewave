@@ -20,7 +20,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "PriceWave - Track Prices & Save Money",
+  title: "PriceWave - Price Tracker for Amazon",
   description: "Track prices across top e-commerce sites and get instant alerts on price drops. Save money effortlessly and make smart shopping decisions today",
   icons: {
     icon: '/assets/icons/logo.svg'
