@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
-import { getAllProductsUrls, scrapeAndCheckProduct } from '@/lib/actions'
+import { getAllProductsUrls, scrapeAndCheckProduct, getAllProductsId } from '@/lib/actions'
 import { revalidatePath } from 'next/cache'
 
 export async function POST() {
@@ -40,9 +40,10 @@ async function runScheduledTask() {
         const allData=await Promise.all(fetchPromises);
         console.log('Running scheduled task ended:', new Date().toISOString())
         revalidatePath(`/`);
-
+        const ids= await getAllProductsId();
+        ids.map(id => revalidatePath(`/products/${id}`) );
     }
-    catch{
+    catch(error){
         console.error('Error in running scheduled task:', error)
     }
 
