@@ -32,7 +32,7 @@ import { HeroAnimationContext } from '@/context/context'
     <>
       <div className="mains flex mx-auto gap-20 lg:min-h-[calc(100vh-64px)] items-center w-full lg:w-5/6 flex-col lg:flex-row">
 
-        <div className="pt-10 lg:pt-0 h-full flex flex-col justify-center  gap-5 lg:w-7/12 w-10/12 text-center lg:text-left">
+        <div className="pt-10 lg:pt-0 h-full flex flex-col justify-center  gap-5 lg:w-7/12 w-full px-2 text-center lg:text-left">
           <div className="ani1 items-center hidden lg:flex">
             <span className="text-base text-red-600">Smart Shopping Starts Here:&nbsp;</span>
             <span><Image src="/assets/icons/arrow-right.svg" width={16} height={16} alt=""></Image></span>
