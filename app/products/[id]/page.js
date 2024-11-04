@@ -7,6 +7,7 @@ import ProductActions from "@/components/ProductActions";
 import TrackBtn from "@/components/TrackBtn";
 import RecentlyViewed from "@/components/RecentlyViewed";
 import { Description } from "@headlessui/react";
+import PriceHistoryGraph from "@/components/PriceHistoryGraph";
 
 
 const ProductDetails = async ({ params: { id }}) => {
@@ -22,12 +23,21 @@ const ProductDetails = async ({ params: { id }}) => {
     currency: product.currency,
     currentPrice: product.currentPrice,
   };
+  const priceHistoryData = product.priceHistory.map(item => ({
+    price: item.price,
+    date: item.date,
+    id: item._id.toString() // Convert ObjectId to string
+  }));
+
+  // const interval = Math.ceil(priceHistoryData.length / 50); // Show about 50 points max
+  // const priceHistory = priceHistoryData.filter((_, index) => index % interval === 0);
+  const priceHistory= priceHistoryData;
 
   return (
     <>
-      <div className='flex w-full px-5 lg:px-20 py-10 min-h-[calc(100vh-64px)] gap-10 flex-col lg:flex-row'>
-        <div className="lg:w-2/5  items-center justify-center hidden lg:flex ">
-          <div className="border border-[#CDDBFF] p-5 rounded-xl">
+      <div className='flex w-full px-5 lg:px-20 py-5  gap-10 flex-col lg:flex-row'>
+        <div className="lg:w-2/5 lg:py-20  justify-center hidden lg:flex ">
+          <div className="border h-fit border-[#CDDBFF] p-5 rounded-xl">
           <Link
             href={product.url}
             target="_blank">
@@ -49,17 +59,8 @@ const ProductDetails = async ({ params: { id }}) => {
             {product.title}
           </p>
 
-          <Link
-            href={product.url}
-            target="_blank"
-            className="text-base text-black opacity-50"
-          >
-            Visit Product
-          </Link>
-          
           <ProductActions localProduct={localProduct} productUrl={product.url} createdAt={product.createdAt} updatedAt={product.updatedAt}   />
           
-
           <div className="flex flex-col gap-5">
               <div className="flex gap-5 flex-wrap my-2 justify-center lg:justify-start">
                   <div className="flex items-center justify-center lg:hidden border border-[#CDDBFF] w-[160px]">
@@ -93,6 +94,7 @@ const ProductDetails = async ({ params: { id }}) => {
                 />
               </div>
             </div>
+            <PriceHistoryGraph priceHistory={priceHistory}/>
 
 
 
