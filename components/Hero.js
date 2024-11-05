@@ -5,11 +5,11 @@ import SearchBar from './SearchBar'
 import HeroCarousel from './HeroCarousel'
 import Image from 'next/image'
 import gsap from 'gsap'
-import { HeroAnimationContext } from '@/context/context'
+// import { HeroAnimationContext } from '@/context/context'
 
   const Hero = ({carouselProducts}) => {
 
-    const { hasAnimated, setHasAnimated } = useContext(HeroAnimationContext);
+    // const { hasAnimated, setHasAnimated } = useContext(HeroAnimationContext);
     useEffect(() => {
       // if(!hasAnimated) {
       //   setHasAnimated(true);

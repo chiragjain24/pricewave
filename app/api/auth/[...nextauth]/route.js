@@ -77,20 +77,6 @@ export const authOptions = {
       return false;
     },
 
-    async session({ session, token, user }) {
-      try{
-        await connectToDB();
-        let currentUser = await User.findOne({ email: session.user.email })
-        session.user.name = currentUser.name;
-        return session
-      }
-      catch(error){
-        return session
-      }
-    h
-      
-    },
-    
 
 
   }

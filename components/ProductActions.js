@@ -145,10 +145,10 @@ const ProductActions = (props) => {
             <div className="text-sm text-black opacity-50 w-full flex items-center gap-3 lg:gap-5 lg:pl-16 k">
                 <div className="flex flex-col">
                   <div>
-                    Created at: {formatDate(props.createdAt)}
+                    First Created : {formatDate(props.createdAt)}
                   </div>
                   <div className="flex gap-3">
-                  Updated at: {formatDate(props.updatedAt)}
+                  Last Updated : {formatDate(props.updatedAt)}
                   </div>
                 </div>
                 <button aria-label="update" disabled={isLoading} onClick={handleRefresh} className='hover:cursor-pointer' >
@@ -179,5 +179,5 @@ export const formatDate =(input)=>{
       hour12: true  
     };
   
-    return date.toLocaleString('en-US', options);
+    return date.toLocaleString('en-IN', options);
   }

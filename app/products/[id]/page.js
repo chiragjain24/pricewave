@@ -1,17 +1,17 @@
 import { getAllProductsId, getProductById } from "@/lib/actions"
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound} from "next/navigation";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductActions from "@/components/ProductActions";
 import TrackBtn from "@/components/TrackBtn";
 import RecentlyViewed from "@/components/RecentlyViewed";
-import { Description } from "@headlessui/react";
 import PriceHistoryGraph from "@/components/PriceHistoryGraph";
 
 
 const ProductDetails = async ({ params: { id }}) => {
   const product = await getProductById(id);
+  console.log('yoyo');
   if (!product) {
     notFound()
   }
@@ -23,15 +23,12 @@ const ProductDetails = async ({ params: { id }}) => {
     currency: product.currency,
     currentPrice: product.currentPrice,
   };
-  const priceHistoryData = product.priceHistory.map(item => ({
+  const priceHistory = product.priceHistory.map(item => ({
     price: item.price,
     date: item.date,
     id: item._id.toString() // Convert ObjectId to string
   }));
 
-  // const interval = Math.ceil(priceHistoryData.length / 50); // Show about 50 points max
-  // const priceHistory = priceHistoryData.filter((_, index) => index % interval === 0);
-  const priceHistory= priceHistoryData;
 
   return (
     <>

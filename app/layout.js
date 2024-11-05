@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SessionWrapper from "@/components/SessionWrapper";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
+// import { Analytics } from "@vercel/analytics/react"
 import ProductsProvider from "@/context/ProductsProvider";
 import HeroAnimationProvider from "@/context/HeroAnimationProvider";
 
@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
         </SessionWrapper>
 
         <SpeedInsights />
-        <Analytics />
+        {/* <Analytics /> */}
       </body>
     </html>
   );
