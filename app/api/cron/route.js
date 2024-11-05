@@ -41,7 +41,7 @@ async function runScheduledTask() {
         console.log('Running scheduled task ended:', new Date().toISOString())
         revalidatePath(`/`);
         const ids= await getAllProductsId();
-        ids.map(id => revalidatePath(`/products/${id}`) );
+        ids.map(item => revalidatePath(`/products/${item.id}`,'page') );
     }
     catch(error){
         console.error('Error in running scheduled task:', error)

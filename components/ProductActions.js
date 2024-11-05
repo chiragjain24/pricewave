@@ -179,5 +179,5 @@ export const formatDate =(input)=>{
       hour12: true  
     };
   
-    return date.toLocaleString('en-IN', options);
+    return date.toLocaleString('en-US', options);
   }
