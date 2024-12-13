@@ -57,45 +57,9 @@ const ProductDetails = async ({ params: { id }}) => {
           </p>
 
           <ProductActions localProduct={localProduct} productUrl={product.url} createdAt={product.createdAt} updatedAt={product.updatedAt}   />
-          
-          <div className="flex flex-col gap-5">
-              <div className="flex gap-5 flex-wrap my-2 justify-center lg:justify-start">
-                  <div className="flex items-center justify-center lg:hidden border border-[#CDDBFF] w-[160px]">
-                    <Link
-                      href={product.url}
-                      target="_blank">
-                      <Image
-                        unoptimized
-                        src={product.image}
-                        alt={product.title}
-                        width={50}
-                        height={50}
-                        />
-                      </Link> 
-                  </div>
-
-                <PriceInfoCard
-                  title="Average Price"
-                  iconSrc="/assets/icons/chart.svg"
-                  value={`${product.currency} ${formatNumber(product.averagePrice)}`}
-                />
-                <PriceInfoCard
-                  title="Lowest Price"
-                  iconSrc="/assets/icons/arrow-down.svg"
-                  value={`${product.currency} ${formatNumber(product.lowestPrice)}`}
-                />
-                <PriceInfoCard
-                  title="Highest Price"
-                  iconSrc="/assets/icons/arrow-up.svg"
-                  value={`${product.currency} ${formatNumber(product.highestPrice)}`}
-                />
-              </div>
-            </div>
-            <PriceHistoryGraph priceHistory={priceHistory}/>
-
-
-
-          <div className="flex items-center flex-wrap gap-3 lg:gap-10 py-6 border-y border-y-[#E4E4E4] ">
+         
+         
+          <div className="flex items-center flex-wrap gap-3 lg:gap-10 py-4 border-y border-y-[#E4E4E4] ">
             <div className="flex flex-col gap-2">
               <p className="text-2xl text-[#282828] font-bold">
                 {product.currency} {formatNumber(product.currentPrice)}
@@ -140,6 +104,44 @@ const ProductDetails = async ({ params: { id }}) => {
             </p>
             </div>
           </div>
+
+          <PriceHistoryGraph priceHistory={priceHistory}/>
+
+
+          <div className="flex flex-col gap-5">
+              <div className="flex gap-5 flex-wrap my-2 justify-center lg:justify-start">
+                  <div className="flex items-center justify-center lg:hidden border border-[#CDDBFF] w-[160px]">
+                    <Link
+                      href={product.url}
+                      target="_blank">
+                      <Image
+                        unoptimized
+                        src={product.image}
+                        alt={product.title}
+                        width={50}
+                        height={50}
+                        />
+                      </Link> 
+                  </div>
+
+                <PriceInfoCard
+                  title="Average Price"
+                  iconSrc="/assets/icons/chart.svg"
+                  value={`${product.currency} ${formatNumber(product.averagePrice)}`}
+                />
+                <PriceInfoCard
+                  title="Lowest Price"
+                  iconSrc="/assets/icons/arrow-down.svg"
+                  value={`${product.currency} ${formatNumber(product.lowestPrice)}`}
+                />
+                <PriceInfoCard
+                  title="Highest Price"
+                  iconSrc="/assets/icons/arrow-up.svg"
+                  value={`${product.currency} ${formatNumber(product.highestPrice)}`}
+                />
+              </div>
+          </div>
+
 
           <div className="flex gap-5">
             <TrackBtn productUrl={product.url} productId={localProduct._id}/>
