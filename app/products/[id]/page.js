@@ -11,7 +11,6 @@ import PriceHistoryGraph from "@/components/PriceHistoryGraph";
 
 const ProductDetails = async ({ params: { id }}) => {
   const product = await getProductById(id);
-  console.log('yoyo');
   if (!product) {
     notFound()
   }
