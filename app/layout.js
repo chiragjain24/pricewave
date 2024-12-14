@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 // import { Analytics } from "@vercel/analytics/react"
 import ProductsProvider from "@/context/ProductsProvider";
 import HeroAnimationProvider from "@/context/HeroAnimationProvider";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://m.media-amazon.com" />
+        <Script defer src="https://cloud.umami.is/script.js" data-website-id="0b269a99-b430-4e9f-99a5-07f47e320741"></Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
         <SessionWrapper>
